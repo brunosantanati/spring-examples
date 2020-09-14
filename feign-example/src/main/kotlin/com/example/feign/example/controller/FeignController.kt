@@ -2,6 +2,7 @@ package com.example.feign.example.controller
 
 import com.example.feign.example.BookControllerFeignClientBuilder
 import com.example.feign.example.feign.BookClient
+import com.example.feign.example.feign.BookClient2
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.bind.annotation.RestController
@@ -12,14 +13,16 @@ import org.springframework.web.bind.annotation.RestController
 //Exemplo baseado nesse link https://www.baeldung.com/intro-to-feign
 //Código original do projeto no link https://github.com/eugenp/tutorials/tree/master/feign
 
+//Outro exemplo de uso de Feig nesse projeto: https://github.com/brunosantanati/eats-pagamento-service/blob/master/src/main/java/br/com/caelum/eats/pagamento/PedidoRestClient.java
+
 @RestController
-class FeignController {
+class FeignController(private val bookClient: BookClient2) {
 
     @GetMapping("test-feign")
     @ResponseBody
     fun testFeign(): String{
-        val feignClientBuilder = BookControllerFeignClientBuilder()
-        val bookClient = feignClientBuilder.bookClient
+//        val feignClientBuilder = BookControllerFeignClientBuilder()
+//        val bookClient = feignClientBuilder.bookClient
         val books = bookClient.findAll()
         var names: String = ""
         books?.map { names = "[${it?.book?.title}] $names" }
