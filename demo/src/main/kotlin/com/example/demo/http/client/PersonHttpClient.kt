@@ -1,8 +1,8 @@
 package com.example.demo.http.client
 
-import com.example.demo.dto.PersonDTO
+import com.example.demo.dto.OtherPersonDTO
 import com.example.demo.dto.ResponseDTO
-import com.example.demo.enums.PersonType
+import com.example.demo.enums.TypesOfPerson
 import com.google.gson.Gson
 import org.springframework.http.HttpHeaders
 import org.springframework.http.MediaType
@@ -15,7 +15,7 @@ class PersonHttpClient(
 
     fun testPersonEndpoint(){
 
-        val json = gson.toJson(PersonDTO("Bruno Sant Ana", PersonType.PESSOA_FISICA))
+        val json = gson.toJson(OtherPersonDTO("Bruno Sant Ana", TypesOfPerson.PESSOA_FISICA))
         println("json $json")
 
         khttp.post(
