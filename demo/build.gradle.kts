@@ -26,6 +26,19 @@ dependencies {
 	}
 	implementation("khttp:khttp:1.0.0")
 	implementation("com.google.code.gson:gson:2.8.6")
+
+	//Unit Tests
+	testImplementation("io.mockk:mockk:1.10.0")
+	testImplementation("com.ninja-squad:springmockk:2.0.2")
+	testImplementation("io.kotest:kotest-runner-junit5-jvm:4.0.5") // for kotest framework
+	testImplementation("io.kotest:kotest-assertions-core-jvm:4.0.5") // for kotest core jvm assertions
+	testImplementation("io.kotest:kotest-property-jvm:4.0.5") // for kotest property test
+	testImplementation("io.kotest:kotest-extensions-spring:4.0.5")
+	testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0")
+	testImplementation("org.junit.jupiter:junit-jupiter-api:5.2.0")
+	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.2.0")
+	testImplementation("com.squareup.okhttp3:mockwebserver:4.0.0")
+	testImplementation("com.squareup.okhttp3:okhttp:4.0.0")
 }
 
 tasks.withType<Test> {
