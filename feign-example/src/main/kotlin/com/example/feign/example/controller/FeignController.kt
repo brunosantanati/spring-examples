@@ -23,9 +23,13 @@ class FeignController(private val bookClient: BookClient2) {
     fun testFeign(): String{
 //        val feignClientBuilder = BookControllerFeignClientBuilder()
 //        val bookClient = feignClientBuilder.bookClient
-        val books = bookClient.findAll()
+        val books = bookClient.findAll(null)
+        val booksFiltered = bookClient.findAll("Animal")
+
         var names: String = ""
         books?.map { names = "[${it?.book?.title}] $names" }
+        names = " - $names"
+        booksFiltered?.map { names = "[${it?.book?.title}] $names" }
         return names
     }
 
