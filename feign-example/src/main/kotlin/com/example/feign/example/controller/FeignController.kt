@@ -23,8 +23,8 @@ class FeignController(private val bookClient: BookClient2) {
     fun testFeign(): String{
 //        val feignClientBuilder = BookControllerFeignClientBuilder()
 //        val bookClient = feignClientBuilder.bookClient
-        val books = bookClient.findAll(null)
-        val booksFiltered = bookClient.findAll("Animal")
+        val books = bookClient.findAll(null) //request para http://localhost:8081/api/books
+        val booksFiltered = bookClient.findAll("Animal") //request para http://localhost:8081/api/books?titleParam=Animal
 
         var names: String = ""
         books?.map { names = "[${it?.book?.title}] $names" }
