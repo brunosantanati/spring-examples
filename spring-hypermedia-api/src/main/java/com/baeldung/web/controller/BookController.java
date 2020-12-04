@@ -7,11 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.baeldung.model.Book;
 import com.baeldung.model.BookView;
@@ -40,8 +36,12 @@ public class BookController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<BookResource> findAll() {
-        final List<Book> books = (List<Book>) repo.findAll();
+    public List<BookResource> findAll(@RequestParam(required = false) String titleParam) {
+        List<Book> books = (List<Book>) repo.findAll();
+
+        if(titleParam != null)
+            books = books.stream().filter((book) -> book.getTitle().startsWith(titleParam)).collect(Collectors.toList());
+
         final List<BookResource> bookResources = books.stream().map(BookResource::new).collect(Collectors.toList());
         return bookResources;
     }
