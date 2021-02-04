@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface StudentRepository extends CrudRepository<Student, Long> {
+public interface StudentRepository extends CrudRepository<Student, Long>, StudentCustomRepository {
 
     List<Student> findByNameContaining(String name);
 }

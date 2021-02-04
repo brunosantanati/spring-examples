@@ -57,7 +57,12 @@ public class Application {
             // add another course
             Course course4 = new Course("Elasticsearch", "El", 10, 1000);
             courseRepository.save(course4);
-            student.getCourses().clear();
+
+            studentRepository.clear(); //necessário usar isso antes do próximo select no BD para trazer dados atualizados
+
+            System.out.println("#######################");
+            List<Student> students = studentRepository.findByNameContaining("John Doe");
+            student = students.get(0);
             student.getCourses().add(course4);
             studentRepository.save(student);
 
