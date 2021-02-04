@@ -59,9 +59,11 @@ public class Application {
             courseRepository.save(course4);
 
             System.out.println("#######################");
-            List<Student> students = studentRepository.findByNameContaining("John Doe");
-            student = students.get(0);
-            student.getCourses().add(course4);
+            Optional<Student> student1 = studentRepository.findById(20L); //mudar o id antes de executar
+            if(student1.isPresent()) {
+                student = student1.get();
+                student.getCourses().add(course4);
+            }
             studentRepository.save(student);
 
             // show students and courses
