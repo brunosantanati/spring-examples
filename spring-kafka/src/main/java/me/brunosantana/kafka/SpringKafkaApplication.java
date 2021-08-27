@@ -7,7 +7,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.kafka.core.KafkaTemplate;
 
-//Exemplo baseado em: https://www.baeldung.com/spring-kafka
+//Exemplo baseado em:
+//https://www.baeldung.com/spring-kafka
+//https://github.com/eugenp/tutorials/tree/master/spring-kafka
 
 //Sobre CommandLineRunner:
 //https://receitasdecodigo.com.br/spring-boot/spring-boot-usando-applicationrunner-e-commandlinerunner
