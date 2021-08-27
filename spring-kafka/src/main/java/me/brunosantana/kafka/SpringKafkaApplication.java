@@ -1,11 +1,11 @@
 package me.brunosantana.kafka;
 
-import org.springframework.beans.factory.annotation.Autowired;
+/*import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.kafka.core.KafkaTemplate;*/
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.kafka.core.KafkaTemplate;
 
 //Exemplo baseado em:
 //https://www.baeldung.com/spring-kafka
@@ -19,24 +19,24 @@ import org.springframework.kafka.core.KafkaTemplate;
 //https://github.com/brunosantanati/docker/blob/main/meus-exemplos/kafka/anotacoes-kafka.txt
 
 @SpringBootApplication
-public class SpringKafkaApplication implements CommandLineRunner {
+public class SpringKafkaApplication /*implements CommandLineRunner*/ {
 
-	@Value("${kafka.topic}")
+	/*@Value("${kafka.topic}")
 	private String topicName;
 
 	@Autowired
-	private KafkaTemplate<String, String> kafkaTemplate;
+	private KafkaTemplate<String, String> kafkaTemplate;*/
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringKafkaApplication.class, args);
 	}
 
-	@Override
+	/*@Override
 	public void run(String... args) throws Exception {
 		sendMessage("Minha mensagem");
 	}
 
 	public void sendMessage(String msg) {
 		kafkaTemplate.send(topicName, msg);
-	}
+	}*/
 }
