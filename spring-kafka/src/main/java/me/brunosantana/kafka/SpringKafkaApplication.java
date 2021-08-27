@@ -8,9 +8,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.kafka.core.KafkaTemplate;
 
 //Exemplo baseado em: https://www.baeldung.com/spring-kafka
+
 //Sobre CommandLineRunner:
 //https://receitasdecodigo.com.br/spring-boot/spring-boot-usando-applicationrunner-e-commandlinerunner
 //https://jhooq.com/commandlinerunner-spring-boot/
+
+//Para subir o Kafka via Docker e criar o tópico:
+//https://github.com/brunosantanati/docker/blob/main/meus-exemplos/kafka/anotacoes-kafka.txt
 
 @SpringBootApplication
 public class SpringKafkaApplication implements CommandLineRunner {
