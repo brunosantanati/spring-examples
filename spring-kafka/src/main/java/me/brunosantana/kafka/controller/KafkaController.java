@@ -1,5 +1,8 @@
 package me.brunosantana.kafka.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import me.brunosantana.kafka.model.MyMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -22,4 +25,11 @@ public class KafkaController {
         return "message posted in Kafka topic!";
     }
 
+    @GetMapping("json")
+    public String postJsonMessage() throws JsonProcessingException {
+        MyMessage myMessage = new MyMessage("campo 1", "campo 2");
+        String msg = new ObjectMapper().writeValueAsString(myMessage);
+        kafkaTemplate.send(topicName, msg);
+        return "message posted in Kafka topic!";
+    }
 }
