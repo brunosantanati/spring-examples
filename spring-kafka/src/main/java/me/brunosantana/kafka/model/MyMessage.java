@@ -25,4 +25,12 @@ public class MyMessage {
     public void setCampo2(String campo2) {
         this.campo2 = campo2;
     }
+
+    @Override
+    public String toString() {
+        return "MyMessage{" +
+                "campo1='" + campo1 + '\'' +
+                ", campo2='" + campo2 + '\'' +
+                '}';
+    }
 }

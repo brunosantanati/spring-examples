@@ -17,19 +17,19 @@ public class KafkaController {
     private String topicName;
 
     @Autowired
-    private KafkaTemplate<String, String> kafkaTemplate;
+    private KafkaTemplate<String, MyMessage> kafkaTemplate;
 
     @GetMapping("message/{msg}")
     public String postMessage(@PathVariable String msg){
-        kafkaTemplate.send(topicName, msg);
+        kafkaTemplate.send(topicName, new MyMessage(msg, msg));
         return "message posted in Kafka topic!";
     }
 
     @GetMapping("json")
     public String postJsonMessage() throws JsonProcessingException {
         MyMessage myMessage = new MyMessage("campo 1", "campo 2");
-        String msg = new ObjectMapper().writeValueAsString(myMessage);
-        kafkaTemplate.send(topicName, msg);
+        //String msg = new ObjectMapper().writeValueAsString(myMessage);
+        kafkaTemplate.send(topicName, myMessage);
         return "message posted in Kafka topic!";
     }
 }
