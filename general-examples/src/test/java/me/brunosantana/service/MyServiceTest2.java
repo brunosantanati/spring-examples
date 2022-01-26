@@ -10,11 +10,14 @@ import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Arrays;
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@Import(TestNameConfig.class)
-@ActiveProfiles("test")
-public class MyServiceTest {
+//@Import(TestNameConfig.class)
+//@ActiveProfiles("test") //Do not activate test profile, use default profile
+public class MyServiceTest2 {
 
     @Autowired
     MyService service;
@@ -22,7 +25,10 @@ public class MyServiceTest {
     @Test
     public void should_printNameSuccessfully(){
         String generatedName = service.getGeneratedName();
+        System.out.println(generatedName);
 
-        Assert.assertEquals("TestName", generatedName);
+        List<String> names = Arrays.asList("Bruno", "Paulo", "Marcelo", "Lucas");
+
+        Assert.assertTrue(names.contains(generatedName));
     }
 }
