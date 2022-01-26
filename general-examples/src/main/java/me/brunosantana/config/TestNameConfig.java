@@ -14,7 +14,8 @@ public class TestNameConfig {
     //@TestConfiguration and @Import:
     //https://mkyong.com/spring-boot/spring-boot-how-to-init-a-bean-for-testing/
 
-    //Use the VM argument: -Dspring.profiles.active=test
+    //Use this VM argument when running the unit tests: -Dspring.profiles.active=test
+    //You don't need to inform a profile when running the Application
     //https://www.baeldung.com/spring-profiles
 
     @Bean

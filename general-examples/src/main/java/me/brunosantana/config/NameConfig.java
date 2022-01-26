@@ -11,7 +11,8 @@ import org.springframework.context.annotation.Profile;
 @Configuration
 public class NameConfig {
 
-    //Use the VM argument: -Dspring.profiles.active=test
+    //Use this VM argument when running the unit tests: -Dspring.profiles.active=test
+    //You don't need to inform a profile when running the Application
     //https://www.baeldung.com/spring-profiles
 
     @Bean
