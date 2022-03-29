@@ -1,0 +1,6 @@
+2022-03-29 14:11:22,628 INFO m.b.GeneralExamplesApplication [restartedMain] Starting GeneralExamplesApplication using Java 17 on LAPTOP-G59GHKBI with PID 17760 (C:\Users\55119\IdeaProjects\spring-examples\general-examples\target\classes started by 55119 in C:\Users\55119\IdeaProjects\spring-examples\general-examples)
+2022-03-29 14:11:22,638 DEBUG m.b.GeneralExamplesApplication [restartedMain] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-29 14:11:22,638 INFO m.b.GeneralExamplesApplication [restartedMain] No active profile set, falling back to default profiles: default
+2022-03-29 14:11:24,485 INFO m.b.GeneralExamplesApplication [restartedMain] Started GeneralExamplesApplication in 2.286 seconds (JVM running for 3.218)
+2022-03-29 14:11:31,091 DEBUG m.b.c.MyController [http-nio-8080-exec-2] Logging a person: Person(name=Brunooo, lastName=Sant Ana, address=Address(street=Rua Giovanni, number=1111, city=Santo André, state=SP, zipCode=9999999, country=Brazil))
+2022-03-29 14:11:31,092 DEBUG m.b.c.MyController [http-nio-8080-exec-2] Spring version: 5.3.15
