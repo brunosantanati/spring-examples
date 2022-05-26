@@ -1,8 +1,10 @@
 package me.brunosantana.async.utils
 
 import org.springframework.scheduling.annotation.Async
+import org.springframework.stereotype.Component
 
-class AsyncUtils {
+@Component
+class AsyncComponent {
 
     @Async
     fun asyncMethodWithVoidReturnType() {
