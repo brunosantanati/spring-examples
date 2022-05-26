@@ -13,4 +13,11 @@ class AsyncComponent {
         }
     }
 
+    @Async
+    fun asyncMethodThatThrowsException() {
+        val numbers: IntArray = intArrayOf(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+        println(Thread.currentThread().name + " - " + numbers[0])
+        println(numbers[10]) //force an exception
+    }
+
 }

@@ -22,6 +22,7 @@ class MyController {
         for(num in 1..10){
             println(Thread.currentThread().name + " - " + num)
         }
+        asyncComponent.asyncMethodThatThrowsException()
         return ResponseEntity("OK", HttpStatus.OK)
     }
 

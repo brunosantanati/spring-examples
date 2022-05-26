@@ -7,6 +7,7 @@ class CustomAsyncExceptionHandler : AsyncUncaughtExceptionHandler {
   override fun handleUncaughtException(
     throwable: Throwable, method: Method, vararg obj: Any
   ) {
+    println(Thread.currentThread().name)
     println("Exception message - " + throwable.message)
     System.out.println("Method name - " + method.getName())
     for (param in obj) {
