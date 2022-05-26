@@ -1,5 +1,7 @@
 package me.brunosantana.async.exception
 
+import me.brunosantana.async.model.Data
+import me.brunosantana.async.model.Data2
 import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler
 import java.lang.reflect.Method
 
@@ -9,9 +11,15 @@ class CustomAsyncExceptionHandler : AsyncUncaughtExceptionHandler {
   ) {
     println(Thread.currentThread().name)
     println("Exception message - " + throwable.message)
-    System.out.println("Method name - " + method.getName())
+    println("Method name - " + method.name)
     for (param in obj) {
-      println("Parameter value - $param")
+      if(param is Data2) {
+        println("Parameter value - Data2 " + param.getName() + " " + param.list) //print fields / info manually
+      }else if(param is Data){
+        println("Parameter value - Data(3) " + param.getName()) //print fields / info manually
+      }else {
+        println("Parameter value - $param") //data classes has a toString and prints the whole object
+      }
     }
   }
 }

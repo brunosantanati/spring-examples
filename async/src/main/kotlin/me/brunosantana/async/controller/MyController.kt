@@ -1,5 +1,9 @@
 package me.brunosantana.async.controller
 
+import me.brunosantana.async.model.Data
+import me.brunosantana.async.model.Data1
+import me.brunosantana.async.model.Data2
+import me.brunosantana.async.model.Data3
 import me.brunosantana.async.utils.AsyncComponent
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
@@ -17,12 +21,21 @@ class MyController {
     @GetMapping("async")
     fun testAsync(): ResponseEntity<String> {
         println(Thread.currentThread().name + " - Before")
+
         asyncMethodWithVoidReturnType() //Self-invocation — calling the async method from within the same class — won't work.
+
         asyncComponent.asyncMethodWithVoidReturnType()
+
+        val data1 = Data1(name = "", list = listOf("AA", "BB"))
+        val data2 = Data2()
+        data2.list = listOf("CC", "DD")
+        val data3: Data = Data3()
+        asyncComponent.asyncMethodThatThrowsException(data1, data2, data3)
+
         for(num in 1..10){
             println(Thread.currentThread().name + " - " + num)
         }
-        asyncComponent.asyncMethodThatThrowsException()
+
         return ResponseEntity("OK", HttpStatus.OK)
     }
 
