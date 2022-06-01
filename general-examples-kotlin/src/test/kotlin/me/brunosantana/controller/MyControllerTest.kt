@@ -31,6 +31,17 @@ class MyControllerTest {
     }
 
     @Test
+    fun `make sure a expected person is being passed using objects with different reference`() {
+        every { luckNumberGenerator.generateLuckNumber(any()) } returns Person("Bruno", 10)
+
+        val person = Person("Bruno", 0)
+
+        myController.getPersonLuckNumber(person)
+
+        verify { luckNumberGenerator.generateLuckNumber(Person("Bruno", 0)) }
+    }
+
+    @Test
     fun `comparing using any`() {
         every { luckNumberGenerator.generateLuckNumber(any()) } returns Person("Bruno", 10)
 
