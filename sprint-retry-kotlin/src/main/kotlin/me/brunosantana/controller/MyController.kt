@@ -16,6 +16,7 @@ class MyController(
     @GetMapping("retry")
     fun retry(): ResponseEntity<String>{
         retryService.retryServiceWithRecovery("select * from table")
+        retryService.retrying()
         return ResponseEntity("OK", HttpStatus.OK)
     }
 
