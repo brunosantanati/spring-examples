@@ -9,7 +9,9 @@ import java.sql.SQLException
 @Service
 class RetryService {
 
-    @Retryable(value = [SQLException::class, RuntimeException::class], maxAttempts = 2, backoff = Backoff(delay = 5000))
+    //@Retryable(value = [SQLException::class, RuntimeException::class], maxAttempts = 2, backoff = Backoff(delay = 5000))
+    @Retryable(value = [SQLException::class, RuntimeException::class], maxAttemptsExpression = "\${retry.max.attempts}",
+        backoff = Backoff(delayExpression = "\${retry.backoff}"))
     fun retryServiceWithRecovery(sql: String) {
         println("\nexecuting...")
         val randomNumber = (0..1).random()
