@@ -30,6 +30,7 @@ class RetryService {
     }
 
     @Retryable(value = [IllegalStateException::class], maxAttempts = 3, backoff = Backoff(delay = 3000)) //it works
+    //@Retryable(value = [IllegalCallerException::class], maxAttempts = 3, backoff = Backoff(delay = 3000)) //it works
     //@Retryable(value = [IllegalArgumentException::class], maxAttempts = 3, backoff = Backoff(delay = 3000)) //it works
     //@Retryable(value = [ArithmeticException::class], maxAttempts = 3, backoff = Backoff(delay = 3000)) //it only executes once but executes @Recover
     fun retrying(){
