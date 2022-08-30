@@ -1,0 +1,4 @@
+retry:
+  max:
+    attempts: '2'
+  backoff: '2000'
