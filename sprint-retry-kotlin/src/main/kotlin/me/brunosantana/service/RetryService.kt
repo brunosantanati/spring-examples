@@ -1,5 +1,6 @@
 package me.brunosantana.service
 
+import org.springframework.retry.annotation.Backoff
 import org.springframework.retry.annotation.Recover
 import org.springframework.retry.annotation.Retryable
 import org.springframework.stereotype.Service
@@ -8,7 +9,7 @@ import java.sql.SQLException
 @Service
 class RetryService {
 
-    @Retryable(value = [SQLException::class, RuntimeException::class])
+    @Retryable(value = [SQLException::class, RuntimeException::class], maxAttempts = 2, backoff = Backoff(delay = 5000))
     fun retryServiceWithRecovery(sql: String) {
         println("\nexecuting...")
         val randomNumber = (0..1).random()
