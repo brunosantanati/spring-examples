@@ -33,6 +33,7 @@ class RetryService {
     //@Retryable(value = [IllegalCallerException::class], maxAttempts = 3, backoff = Backoff(delay = 3000)) //it works
     //@Retryable(value = [IllegalArgumentException::class], maxAttempts = 3, backoff = Backoff(delay = 3000)) //it works
     //@Retryable(value = [ArithmeticException::class], maxAttempts = 3, backoff = Backoff(delay = 3000)) //it only executes once but executes @Recover
+    @Throws(IllegalStateException::class)
     fun retrying(){
         println("\nperforming...")
         UserRepository().saveUser()
