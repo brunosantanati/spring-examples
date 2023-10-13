@@ -14,4 +14,12 @@ public class MyService {
         return nameGenerator.getName();
     }
 
+    public String throwException() throws Exception {
+        boolean condition = true;
+        if(condition) {
+            throw new Exception("Error in the service");
+        }
+        return "OK";
+    }
+
 }
