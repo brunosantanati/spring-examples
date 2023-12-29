@@ -2,6 +2,7 @@
 
 [Health Indicators in Spring Boot](https://www.baeldung.com/spring-boot-health-indicators)  
 [Spring Boot Actuator](https://www.baeldung.com/spring-boot-actuators)  
+[Endpoints](https://docs.spring.io/spring-boot/docs/2.1.11.RELEASE/reference/html/production-ready-endpoints.html)    
 
 ## Endpoints
 
