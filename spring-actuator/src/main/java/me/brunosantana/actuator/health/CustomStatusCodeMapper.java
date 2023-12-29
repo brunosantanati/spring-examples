@@ -4,7 +4,7 @@ import org.springframework.boot.actuate.health.HttpCodeStatusMapper;
 import org.springframework.boot.actuate.health.Status;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class CustomStatusCodeMapper implements HttpCodeStatusMapper {
 
     @Override

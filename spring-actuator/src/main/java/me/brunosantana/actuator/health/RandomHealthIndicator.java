@@ -15,10 +15,10 @@ public class RandomHealthIndicator implements HealthIndicator {
     public Health health() {
         double chance = ThreadLocalRandom.current().nextDouble();
         Health.Builder status = Health.up(); // http status 200
-        //Health.Builder status = Health.unknown(); // http status 200 -> changed to 501 by CustomStatusCodeMapper
+        //Health.Builder status = Health.unknown(); // http status 200 -> changed to 501 by application.properties (not CustomStatusCodeMapper anymore)
         if (chance > 0.5) {
-            status = Health.down(); // http status 503 -> changed to 501 by CustomStatusCodeMapper
-            //status = Health.outOfService(); // http status 503 -> changed to 501 by CustomStatusCodeMapper
+            status = Health.down(); // http status 503 -> changed to 501 by application.properties (not CustomStatusCodeMapper anymore)
+            //status = Health.outOfService(); // http status 503 -> changed to 501 by application.properties (not CustomStatusCodeMapper anymore)
         }
         /*boolean x = chance > 0.5;
         if (x) {
