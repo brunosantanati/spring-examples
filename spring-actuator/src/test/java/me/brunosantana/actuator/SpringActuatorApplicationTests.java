@@ -1,4 +1,4 @@
-package me.brunosantana.springactuator;
+package me.brunosantana.actuator;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
